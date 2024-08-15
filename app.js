@@ -7,6 +7,9 @@ function createGrid(size) {
     square.classList.add("square");
     square.style.width = `${640 / size}px`;
     square.style.height = `${640 / size}px`;
-    gridContainer.appendChild(square)
+    gridContainer.appendChild(square);
+    square.addEventListener("mouseover", () => {
+      square.style.backgroundColor = "grey";
+    })
   }
 }
