@@ -11,7 +11,7 @@ function createGrid(size) {
     square.style.height = `${640 / size}px`;
     gridContainer.appendChild(square);
     square.addEventListener("mouseover", () => {
-      square.style.backgroundColor = "grey";
+      square.style.backgroundColor = `rgb(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)})`;
     });
   }
 }
@@ -19,7 +19,7 @@ function createGrid(size) {
 createGrid(16);
 
 function clearGrid(){
-  gridContainer.innerHTML = ''
+  gridContainer.replaceChildren()
 }
 
 function gridSize() {
@@ -33,4 +33,3 @@ function gridSize() {
   clearGrid()
   createGrid(size)
 }
-
