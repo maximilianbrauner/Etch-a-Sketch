@@ -3,6 +3,12 @@ const square = document.createElement("div");
 const sizeButton = document.querySelector(".grid-size-button");
 
 
+//logic for drawing on click
+mouseDown = false
+gridContainer.addEventListener("mousedown", () => {mouseDown = true} )
+gridContainer.addEventListener("mouseup", () => (mouseDown = false))
+
+
 function createGrid(size) {
   for (i = 0; i < size ** 2; i++) {
     const square = document.createElement("div");
@@ -11,8 +17,9 @@ function createGrid(size) {
     square.style.height = `${640 / size}px`;
     gridContainer.appendChild(square);
     square.addEventListener("mouseover", () => {
+      if(mouseDown){
       square.style.backgroundColor = `rgb(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)})`;
-    });
+    }});
   }
 }
 
